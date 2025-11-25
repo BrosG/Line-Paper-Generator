@@ -107,7 +107,9 @@ const state = {
     leftMargin: CONFIG.defaults.leftMargin,
     quality: CONFIG.defaults.quality,
     zoom: 100,
-    theme: 'light'
+    theme: 'light',
+    actionCount: 0,  // Track downloads/prints for follow modal
+    followModalShownThisSession: false
 };
 
 // ==========================================================================
@@ -139,6 +141,8 @@ function cacheElements() {
     elements.zoomLevel = document.getElementById('zoomLevel');
     elements.themeToggle = document.getElementById('themeToggle');
     elements.shortcutsModal = document.getElementById('shortcutsModal');
+    elements.followModal = document.getElementById('followModal');
+    elements.dontShowAgain = document.getElementById('dontShowAgain');
     elements.toastContainer = document.getElementById('toastContainer');
 }
 
@@ -677,28 +681,45 @@ function drawFlatTopHexagon(ctx, cx, cy, sideLength) {
 }
 
 function drawCoordinatePlane(ctx, size, margins, gridSize, color, weight) {
-    // Draw grid first
+    // Calculate center point - this is where axes will cross
+    const centerX = Math.round(size.width / 2);
+    const centerY = Math.round(size.height / 2);
+    
+    // Draw grid STARTING FROM CENTER so it aligns with axes
     ctx.strokeStyle = color;
     ctx.lineWidth = weight * 0.3;
     
-    const centerX = size.width / 2;
-    const centerY = size.height / 2;
-    
-    for (let x = margins.left; x <= size.width - margins.right; x += gridSize) {
+    // Vertical lines - from center going right
+    for (let x = centerX; x <= size.width - margins.right; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, margins.top);
+        ctx.lineTo(x, size.height - margins.bottom);
+        ctx.stroke();
+    }
+    // Vertical lines - from center going left
+    for (let x = centerX - gridSize; x >= margins.left; x -= gridSize) {
         ctx.beginPath();
         ctx.moveTo(x, margins.top);
         ctx.lineTo(x, size.height - margins.bottom);
         ctx.stroke();
     }
     
-    for (let y = margins.top; y <= size.height - margins.bottom; y += gridSize) {
+    // Horizontal lines - from center going down
+    for (let y = centerY; y <= size.height - margins.bottom; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(margins.left, y);
+        ctx.lineTo(size.width - margins.right, y);
+        ctx.stroke();
+    }
+    // Horizontal lines - from center going up
+    for (let y = centerY - gridSize; y >= margins.top; y -= gridSize) {
         ctx.beginPath();
         ctx.moveTo(margins.left, y);
         ctx.lineTo(size.width - margins.right, y);
         ctx.stroke();
     }
     
-    // Draw axes
+    // Draw axes (heavier weight)
     ctx.strokeStyle = '#000000';
     ctx.lineWidth = weight * 2;
     
@@ -718,7 +739,7 @@ function drawCoordinatePlane(ctx, size, margins, gridSize, color, weight) {
     ctx.fillStyle = '#000000';
     const arrowSize = 10;
     
-    // X-axis arrow
+    // X-axis arrow (pointing right)
     ctx.beginPath();
     ctx.moveTo(size.width - margins.right, centerY);
     ctx.lineTo(size.width - margins.right - arrowSize, centerY - arrowSize / 2);
@@ -726,7 +747,7 @@ function drawCoordinatePlane(ctx, size, margins, gridSize, color, weight) {
     ctx.closePath();
     ctx.fill();
     
-    // Y-axis arrow
+    // Y-axis arrow (pointing up)
     ctx.beginPath();
     ctx.moveTo(centerX, margins.top);
     ctx.lineTo(centerX - arrowSize / 2, margins.top + arrowSize);
@@ -734,32 +755,36 @@ function drawCoordinatePlane(ctx, size, margins, gridSize, color, weight) {
     ctx.closePath();
     ctx.fill();
     
-    // Tick marks
+    // Tick marks every 5 grid units
+    ctx.strokeStyle = '#000000';
     ctx.lineWidth = weight;
     const tickSize = 6;
+    const tickInterval = gridSize * 5;
     
-    for (let x = centerX + gridSize * 5; x <= size.width - margins.right; x += gridSize * 5) {
+    // X-axis ticks - positive direction
+    for (let x = centerX + tickInterval; x <= size.width - margins.right; x += tickInterval) {
+        ctx.beginPath();
+        ctx.moveTo(x, centerY - tickSize);
+        ctx.lineTo(x, centerY + tickSize);
+        ctx.stroke();
+    }
+    // X-axis ticks - negative direction
+    for (let x = centerX - tickInterval; x >= margins.left; x -= tickInterval) {
         ctx.beginPath();
         ctx.moveTo(x, centerY - tickSize);
         ctx.lineTo(x, centerY + tickSize);
         ctx.stroke();
     }
     
-    for (let x = centerX - gridSize * 5; x >= margins.left; x -= gridSize * 5) {
-        ctx.beginPath();
-        ctx.moveTo(x, centerY - tickSize);
-        ctx.lineTo(x, centerY + tickSize);
-        ctx.stroke();
-    }
-    
-    for (let y = centerY + gridSize * 5; y <= size.height - margins.bottom; y += gridSize * 5) {
+    // Y-axis ticks - positive direction (down in screen coords)
+    for (let y = centerY + tickInterval; y <= size.height - margins.bottom; y += tickInterval) {
         ctx.beginPath();
         ctx.moveTo(centerX - tickSize, y);
         ctx.lineTo(centerX + tickSize, y);
         ctx.stroke();
     }
-    
-    for (let y = centerY - gridSize * 5; y >= margins.top; y -= gridSize * 5) {
+    // Y-axis ticks - negative direction (up in screen coords)
+    for (let y = centerY - tickInterval; y >= margins.top; y -= tickInterval) {
         ctx.beginPath();
         ctx.moveTo(centerX - tickSize, y);
         ctx.lineTo(centerX + tickSize, y);
@@ -1214,6 +1239,7 @@ function drawStoryboard(ctx, size, margins, color, weight) {
 function printPaper() {
     showToast('Printing', 'Opening print dialog...', 'success');
     window.print();
+    trackAction();
 }
 
 function downloadPng() {
@@ -1225,6 +1251,7 @@ function downloadPng() {
     link.click();
     
     showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as PNG`, 'success');
+    trackAction();
 }
 
 function downloadSvg() {
@@ -1252,6 +1279,7 @@ function downloadSvg() {
     URL.revokeObjectURL(link.href);
     
     showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as SVG`, 'success');
+    trackAction();
 }
 
 // ==========================================================================
@@ -1264,6 +1292,62 @@ function showShortcuts() {
 
 function closeModal() {
     elements.shortcutsModal?.classList.remove('visible');
+    elements.followModal?.classList.remove('visible');
+}
+
+// ==========================================================================
+// Follow Modal Functions
+// ==========================================================================
+
+/**
+ * Check if we should show the follow modal
+ * Shows after 2nd action, unless user opted out or already shown this session
+ */
+function shouldShowFollowModal() {
+    // Check if user opted out permanently
+    if (localStorage.getItem('hideFollowModal') === 'true') {
+        return false;
+    }
+    
+    // Only show once per session
+    if (state.followModalShownThisSession) {
+        return false;
+    }
+    
+    // Show after 2nd download/print action
+    return state.actionCount >= 2;
+}
+
+/**
+ * Show the follow modal with a slight delay
+ */
+function showFollowModal() {
+    if (!shouldShowFollowModal()) return;
+    
+    state.followModalShownThisSession = true;
+    
+    // Delay to let the download/print action complete first
+    setTimeout(() => {
+        elements.followModal?.classList.add('visible');
+    }, 800);
+}
+
+/**
+ * Close the follow modal and save preference if checkbox is checked
+ */
+function closeFollowModal() {
+    if (elements.dontShowAgain?.checked) {
+        localStorage.setItem('hideFollowModal', 'true');
+    }
+    elements.followModal?.classList.remove('visible');
+}
+
+/**
+ * Track an action (download/print) and maybe show follow modal
+ */
+function trackAction() {
+    state.actionCount++;
+    showFollowModal();
 }
 
 // ==========================================================================
@@ -1369,10 +1453,25 @@ function setupEventListeners() {
     document.getElementById('zoomOut')?.addEventListener('click', zoomOut);
     document.getElementById('zoomFit')?.addEventListener('click', zoomFit);
     
-    // Modal
+    // Shortcuts Modal
     document.getElementById('closeShortcuts')?.addEventListener('click', closeModal);
     elements.shortcutsModal?.addEventListener('click', (e) => {
         if (e.target === elements.shortcutsModal) closeModal();
+    });
+    
+    // Follow Modal
+    document.getElementById('closeFollow')?.addEventListener('click', closeFollowModal);
+    document.getElementById('skipFollow')?.addEventListener('click', closeFollowModal);
+    elements.followModal?.addEventListener('click', (e) => {
+        if (e.target === elements.followModal) closeFollowModal();
+    });
+    
+    // Track clicks on follow buttons (for analytics if needed)
+    document.querySelectorAll('.follow-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // User clicked a social link - they engaged!
+            localStorage.setItem('hideFollowModal', 'true');
+        });
     });
     
     // Keyboard shortcuts
