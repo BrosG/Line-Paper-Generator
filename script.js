@@ -107,8 +107,7 @@ const state = {
     leftMargin: CONFIG.defaults.leftMargin,
     quality: CONFIG.defaults.quality,
     zoom: 100,
-    theme: 'light',
-    followModalShownThisSession: false
+    theme: 'light'
 };
 
 // ==========================================================================
@@ -141,7 +140,6 @@ function cacheElements() {
     elements.themeToggle = document.getElementById('themeToggle');
     elements.shortcutsModal = document.getElementById('shortcutsModal');
     elements.followModal = document.getElementById('followModal');
-    elements.dontShowAgain = document.getElementById('dontShowAgain');
     elements.toastContainer = document.getElementById('toastContainer');
 }
 
@@ -1356,40 +1354,137 @@ function closeModal() {
 }
 
 // ==========================================================================
-// Follow Modal Functions
+// Follow Modal Functions - Rotating Messages System
 // ==========================================================================
 
+// Rotating messages that get progressively better
+const FOLLOW_MESSAGES = [
+    {
+        emoji: '🚀',
+        message: '<strong>Love free tools?</strong> I create <span class="highlight">10+ productivity tools</span> like this one. Follow for updates on new releases! <span class="emoji">💙</span>',
+        twitterText: 'Get early access to new tools',
+        githubText: 'See all 10+ projects',
+        linkedinText: 'Connect for pro tips'
+    },
+    {
+        emoji: '🎯',
+        message: '<strong>Quick heads up!</strong> I have <span class="highlight">other free generators</span> you might love: Invoice generator, Resume builder, QR code maker & more! <span class="emoji">✨</span>',
+        twitterText: 'Follow for more free tools',
+        githubText: 'Browse all projects',
+        linkedinText: 'Professional network'
+    },
+    {
+        emoji: '🔥',
+        message: '<strong>Did you know?</strong> Followers get <span class="highlight">early access</span> to new tools before public launch + exclusive tips & tricks! <span class="emoji">🎁</span>',
+        twitterText: 'Get exclusive early access',
+        githubText: 'Star for notifications',
+        linkedinText: 'Pro networking'
+    },
+    {
+        emoji: '💎',
+        message: '<strong>Special offer!</strong> Join <span class="highlight">2,000+ creators</span> using my free toolkit: Forms, calculators, converters, and 15+ productivity tools. <span class="emoji">🚀</span>',
+        twitterText: 'Join 2,000+ followers',
+        githubText: 'Explore 15+ tools',
+        linkedinText: 'Network with creators'
+    },
+    {
+        emoji: '⚡',
+        message: '<strong>Power user detected!</strong> Since you love this tool, check out my <span class="highlight">premium collection</span> (still 100% free): Advanced generators, APIs, and automation tools! <span class="emoji">🎨</span>',
+        twitterText: 'Unlock premium tools',
+        githubText: 'Access API docs',
+        linkedinText: 'Connect for collabs'
+    },
+    {
+        emoji: '🎁',
+        message: '<strong>You\'re awesome!</strong> As a thank you, follow me and get instant access to <span class="highlight">hidden bonus tools</span> not listed publicly + priority support! <span class="emoji">💝</span>',
+        twitterText: 'Get hidden bonus tools',
+        githubText: 'Unlock secret repos',
+        linkedinText: 'Premium networking'
+    },
+    {
+        emoji: '🌟',
+        message: '<strong>VIP Access!</strong> You\'ve used this <span class="highlight">{count} times</span>. Loyal users get first dibs on new features, beta testing, and direct support. Join the VIP club! <span class="emoji">👑</span>',
+        twitterText: 'Join the VIP club',
+        githubText: 'Beta tester access',
+        linkedinText: 'VIP networking'
+    },
+    {
+        emoji: '🏆',
+        message: '<strong>You\'re a superstar!</strong> <span class="highlight">{count} downloads</span> - you clearly value great tools. Get exclusive access to my <span class="highlight">Pro Suite</span> (still free): Advanced features, no ads, unlimited use! <span class="emoji">💪</span>',
+        twitterText: 'Get Pro Suite access',
+        githubText: 'Premium features',
+        linkedinText: 'Elite networking'
+    }
+];
+
 /**
- * Check if we should show the follow modal
- * Shows on first action, unless user opted out or already shown this session
+ * Get the appropriate message based on visit count
+ */
+function getFollowMessage() {
+    const visitCount = parseInt(localStorage.getItem('followModalVisits') || '0') + 1;
+    
+    // Cycle through messages, but use more enticing ones for higher counts
+    let messageIndex;
+    if (visitCount <= 1) messageIndex = 0;
+    else if (visitCount <= 2) messageIndex = 1;
+    else if (visitCount <= 3) messageIndex = 2;
+    else if (visitCount <= 5) messageIndex = 3;
+    else if (visitCount <= 7) messageIndex = 4;
+    else if (visitCount <= 10) messageIndex = 5;
+    else if (visitCount <= 15) messageIndex = 6;
+    else {
+        // Rotate through the last two most enticing messages
+        messageIndex = visitCount % 2 === 0 ? 6 : 7;
+    }
+    
+    // Replace {count} with actual count
+    const message = FOLLOW_MESSAGES[messageIndex];
+    return {
+        ...message,
+        message: message.message.replace('{count}', visitCount),
+        visitCount
+    };
+}
+
+/**
+ * Check if we should show the follow modal - ALWAYS true now!
  */
 function shouldShowFollowModal() {
-    // Check if user opted out permanently
-    if (localStorage.getItem('hideFollowModal') === 'true') {
-        return false;
+    // Always show, unless they've followed (clicked a social link)
+    if (localStorage.getItem('hasFollowed') === 'true') {
+        // Show less frequently after following (every 3rd time)
+        const visitCount = parseInt(localStorage.getItem('followModalVisits') || '0');
+        return visitCount % 3 === 0;
     }
-    
-    // Only show once per session
-    if (state.followModalShownThisSession) {
-        return false;
-    }
-    
-    // Show on first action
     return true;
 }
 
 /**
- * Show the follow modal and update text based on action
+ * Show the follow modal with rotating content
  */
 function showFollowModal() {
-    if (!pendingAction) return;
+    if (!pendingAction || !shouldShowFollowModal()) {
+        // Still execute if they've already followed
+        if (pendingAction) {
+            executePendingAction();
+        }
+        return;
+    }
     
-    state.followModalShownThisSession = true;
+    // Get the rotating message
+    const messageData = getFollowMessage();
     
-    // Update modal text based on action type
+    // Update modal content
     const actionTypeEl = document.getElementById('followActionType');
     const continueTextEl = document.getElementById('continueActionText');
+    const emojiEl = document.getElementById('followEmoji');
+    const messageContainer = document.getElementById('followMessageContainer');
+    const followCountEl = document.getElementById('followCount');
+    const twitterSubtext = document.getElementById('twitterSubtext');
+    const githubSubtext = document.getElementById('githubSubtext');
+    const linkedinSubtext = document.getElementById('linkedinSubtext');
     
+    // Update action type
     if (pendingAction.type === 'print') {
         if (actionTypeEl) actionTypeEl.textContent = 'print';
         if (continueTextEl) continueTextEl.textContent = 'Continue to Print';
@@ -1397,6 +1492,25 @@ function showFollowModal() {
         if (actionTypeEl) actionTypeEl.textContent = 'download';
         if (continueTextEl) continueTextEl.textContent = `Continue to Download ${pendingAction.format || ''}`;
     }
+    
+    // Update emoji
+    if (emojiEl) emojiEl.textContent = messageData.emoji;
+    
+    // Update message with fade effect
+    if (messageContainer) {
+        messageContainer.innerHTML = `<p class="follow-message">${messageData.message}</p>`;
+    }
+    
+    // Update subtext for social buttons
+    if (twitterSubtext) twitterSubtext.textContent = messageData.twitterText;
+    if (githubSubtext) githubSubtext.textContent = messageData.githubText;
+    if (linkedinSubtext) linkedinSubtext.textContent = messageData.linkedinText;
+    
+    // Update counter
+    if (followCountEl) followCountEl.textContent = `Visit #${messageData.visitCount}`;
+    
+    // Save visit count
+    localStorage.setItem('followModalVisits', messageData.visitCount.toString());
     
     // Show modal
     elements.followModal?.classList.add('visible');
@@ -1407,11 +1521,6 @@ function showFollowModal() {
  */
 function executePendingAction() {
     if (pendingAction && pendingAction.execute) {
-        // Save preference if checked
-        if (elements.dontShowAgain?.checked) {
-            localStorage.setItem('hideFollowModal', 'true');
-        }
-        
         // Close modal
         elements.followModal?.classList.remove('visible');
         
@@ -1424,10 +1533,18 @@ function executePendingAction() {
 }
 
 /**
+ * Mark user as followed and execute action
+ */
+function markAsFollowed() {
+    localStorage.setItem('hasFollowed', 'true');
+    executePendingAction();
+}
+
+/**
  * Close the follow modal without executing (shouldn't happen now)
  */
 function closeFollowModal() {
-    // If they somehow close without continuing, still execute the action
+    // Always execute the action
     executePendingAction();
 }
 
@@ -1544,16 +1661,17 @@ function setupEventListeners() {
     document.getElementById('continueAction')?.addEventListener('click', executePendingAction);
     elements.followModal?.addEventListener('click', (e) => {
         // Don't close on backdrop click - force interaction
-        // if (e.target === elements.followModal) executePendingAction();
     });
     
-    // Track clicks on follow buttons - execute action after clicking social link
+    // Track clicks on follow buttons - mark as followed and execute action
     document.querySelectorAll('.follow-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
             // User clicked a social link - they engaged!
-            localStorage.setItem('hideFollowModal', 'true');
-            // Execute their pending action after a brief delay
-            setTimeout(executePendingAction, 300);
+            markAsFollowed();
+            // Let the link open, then execute action
+            setTimeout(() => {
+                // Action already executed by markAsFollowed
+            }, 100);
         });
     });
     
