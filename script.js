@@ -1301,7 +1301,7 @@ function closeModal() {
 
 /**
  * Check if we should show the follow modal
- * Shows after 2nd action, unless user opted out or already shown this session
+ * Shows after 1st action, unless user opted out or already shown this session
  */
 function shouldShowFollowModal() {
     // Check if user opted out permanently
@@ -1314,12 +1314,12 @@ function shouldShowFollowModal() {
         return false;
     }
     
-    // Show after 2nd download/print action
-    return state.actionCount >= 2;
+    // Show after 1st download/print action
+    return state.actionCount >= 1;
 }
 
 /**
- * Show the follow modal with a slight delay
+ * Show the follow modal with a countdown timer
  */
 function showFollowModal() {
     if (!shouldShowFollowModal()) return;
@@ -1329,13 +1329,56 @@ function showFollowModal() {
     // Delay to let the download/print action complete first
     setTimeout(() => {
         elements.followModal?.classList.add('visible');
-    }, 800);
+        
+        // Start countdown timer (4 seconds)
+        let countdown = 4;
+        const closeBtn = document.getElementById('closeFollow');
+        const skipBtn = document.getElementById('skipFollow');
+        const skipTimer = document.getElementById('skipTimer');
+        
+        // Disable buttons initially
+        if (closeBtn) closeBtn.disabled = true;
+        if (skipBtn) skipBtn.disabled = true;
+        
+        // Update timer display
+        const updateTimer = () => {
+            if (skipTimer) {
+                skipTimer.textContent = countdown > 0 ? `Wait ${countdown}s...` : 'Skip';
+            }
+        };
+        
+        updateTimer();
+        
+        const timerInterval = setInterval(() => {
+            countdown--;
+            updateTimer();
+            
+            if (countdown <= 0) {
+                clearInterval(timerInterval);
+                // Enable buttons
+                if (closeBtn) closeBtn.disabled = false;
+                if (skipBtn) {
+                    skipBtn.disabled = false;
+                    skipBtn.classList.add('enabled');
+                }
+            }
+        }, 1000);
+        
+        // Store interval ID in case modal is closed early
+        elements.followModal.dataset.timerInterval = timerInterval;
+    }, 500);
 }
 
 /**
  * Close the follow modal and save preference if checkbox is checked
  */
 function closeFollowModal() {
+    // Clear timer if exists
+    const timerInterval = elements.followModal?.dataset.timerInterval;
+    if (timerInterval) {
+        clearInterval(parseInt(timerInterval));
+    }
+    
     if (elements.dontShowAgain?.checked) {
         localStorage.setItem('hideFollowModal', 'true');
     }
