@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Line Paper Generator - Free Printable Templates for Writing, Math & Technical Drawing</title>
-    <meta name="title" content="Line Paper Generator - Free Printable Templates for Writing, Math & Technical Drawing">
-    <meta name="description" content="Create and print unlimited custom lined paper instantly! Free generator for ruled paper, graph paper, music staff, isometric grids, and more. Perfect for students, teachers, and professionals.">
-    <meta name="keywords" content="lined paper, graph paper, printable paper, ruled paper, grid paper, staff paper, isometric paper, engineering paper, writing paper, notebook paper, free templates, printable templates">
-    <meta name="author" content="Paper Generator Pro">
+    <title>Line Paper Generator Pro - Premium Printable Templates</title>
+    <meta name="title" content="Line Paper Generator Pro - Premium Printable Templates">
+    <meta name="description" content="Create stunning custom lined paper instantly. 18+ paper types including ruled, graph, music staff, isometric grids, and more. 100% free, no registration required.">
+    <meta name="keywords" content="lined paper, graph paper, printable paper, ruled paper, grid paper, staff paper, isometric paper, engineering paper, writing paper, notebook paper, free templates">
+    <meta name="author" content="Line Paper Generator Pro">
     <meta name="robots" content="index, follow">
     
     <!-- Canonical URL -->
@@ -18,1757 +18,518 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://brosg.github.io/Line-Paper-Generator/">
-    <meta property="og:title" content="Line Paper Generator - Free Printable Templates">
-    <meta property="og:description" content="Create and print unlimited custom lined paper instantly! Free generator for ruled paper, graph paper, music staff, and more.">
-    <meta property="og:site_name" content="BrosG Line Paper Generator">
+    <meta property="og:title" content="Line Paper Generator Pro - Premium Printable Templates">
+    <meta property="og:description" content="Create stunning custom lined paper instantly. 18+ paper types, 100% free.">
+    <meta property="og:site_name" content="Line Paper Generator Pro">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://brosg.github.io/Line-Paper-Generator/">
-    <meta property="twitter:title" content="Line Paper Generator - Free Printable Templates">
-    <meta property="twitter:description" content="Create and print unlimited custom lined paper instantly! Perfect for students, teachers, and professionals.">
-    <meta property="twitter:creator" content="@GauthierBros">
-    <meta property="twitter:site" content="@GauthierBros">>
+    <meta property="twitter:title" content="Line Paper Generator Pro - Premium Printable Templates">
+    <meta property="twitter:description" content="Create stunning custom lined paper instantly. 18+ paper types, 100% free.">
     
-    <!-- Theme -->
-    <meta name="theme-color" content="#6366f1">
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark: #1e293b;
-            --gray: #64748b;
-            --light-gray: #f1f5f9;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Poppins', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 50%, #7c3aed 100%);
-            min-height: 100vh;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 24px;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 48px 40px;
-            margin-bottom: 32px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 50%, #7c3aed 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .header p {
-            color: var(--gray);
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
-
-        .header .subtitle {
-            margin-top: 12px;
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Share Bar */
-        .share-bar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 32px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            text-align: center;
-        }
-
-        .share-text {
-            font-size: 0.875rem;
-            color: var(--gray);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .share-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 24px;
-            background: white;
-            color: var(--dark);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .share-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .share-btn.twitter { border-color: #1da1f2; color: #1da1f2; }
-        .share-btn.facebook { border-color: #1877f2; color: #1877f2; }
-        .share-btn.linkedin { border-color: #0a66c2; color: #0a66c2; }
-        .share-btn.copy { border-color: var(--success); color: var(--success); }
-
-        /* Controls Panel */
-        .controls {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 32px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .control-section {
-            margin-bottom: 40px;
-        }
-
-        .control-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .control-label {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .control-label .icon {
-            font-size: 1.5rem;
-        }
-
-        /* Paper Type Grid */
-        .paper-types-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .paper-type-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: center;
-        }
-
-        .paper-type-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-            border-color: var(--primary);
-        }
-
-        .paper-type-card.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
-        }
-
-        .paper-type-icon {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .paper-type-card.active .paper-type-icon {
-            filter: brightness(0) invert(1);
-        }
-
-        .paper-type-name {
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 6px;
-        }
-
-        .paper-type-desc {
-            font-size: 0.75rem;
-            opacity: 0.7;
-            line-height: 1.4;
-        }
-
-        /* Settings Grid */
-        .settings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-
-        .setting-group {
-            background: var(--light-gray);
-            padding: 20px;
-            border-radius: 16px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .setting-group:hover {
-            border-color: var(--primary);
-        }
-
-        .setting-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .setting-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            background: white;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .setting-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-        }
-
-        .slider-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .slider {
-            width: 100%;
-            height: 8px;
-            border-radius: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            outline: none;
-            -webkit-appearance: none;
-            position: relative;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: white;
-            border: 3px solid var(--primary);
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .slider::-webkit-slider-thumb:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
-        }
-
-        .slider::-moz-range-thumb {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: white;
-            border: 3px solid var(--primary);
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .slider-value {
-            text-align: center;
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.125rem;
-        }
-
-        /* Toggle Buttons */
-        .toggle-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .toggle-btn {
-            padding: 10px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            background: white;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .toggle-btn:hover {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        .toggle-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border: none;
-            border-radius: 16px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: inherit;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--dark);
-            border: 2px solid #e2e8f0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Preview Area */
-        .preview-section {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 32px;
-        }
-
-        .preview-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .preview-header h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .preview-info {
-            color: var(--gray);
-            font-size: 0.875rem;
-        }
-
-        .paper-preview {
-            background: white;
-            margin: 0 auto;
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Paper Canvas */
-        #paperCanvas {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        /* Footer */
-        .app-footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 24px 24px 0 0;
-            padding: 32px 40px;
-            margin-top: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-bottom: none;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .made-with-love {
-            font-size: 1rem;
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s ease;
-        }
-
-        .made-with-love:hover {
-            color: var(--accent);
-        }
-
-        .heart {
-            color: var(--accent);
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 50%, 100% { transform: scale(1); }
-            25%, 75% { transform: scale(1.15); }
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .footer-link {
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.875rem;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .footer-link:hover {
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .footer-link svg {
-            margin-right: 6px;
-        }
-
-        /* Print Styles */
-        @media print {
-            body {
-                background: white !important;
-            }
-
-            .header, .controls, .share-bar, .app-footer, 
-            .preview-header, .action-buttons {
-                display: none !important;
-            }
-
-            .preview-section {
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-
-            .paper-preview {
-                box-shadow: none !important;
-                page-break-after: always;
-            }
-
-            #paperCanvas {
-                max-width: 100% !important;
-                height: auto !important;
-            }
-
-            @page {
-                margin: 0;
-                size: auto;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 16px;
-            }
-
-            .header {
-                padding: 32px 24px;
-            }
-
-            .header h1 {
-                font-size: 2.25rem;
-            }
-
-            .header p {
-                font-size: 1rem;
-            }
-
-            .controls {
-                padding: 24px;
-            }
-
-            .paper-types-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 12px;
-            }
-
-            .settings-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .preview-section {
-                padding: 24px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 12px;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Tooltip */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            border-radius: 8px;
-            padding: 8px 12px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 0.75rem;
-            white-space: nowrap;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            color: var(--gray);
-        }
-
-        .empty-icon {
-            font-size: 5rem;
-            margin-bottom: 24px;
-            opacity: 0.5;
-        }
-
-        .empty-state h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            color: var(--dark);
-        }
-
-        .empty-state p {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-    </style>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>📝 Line Paper Generator</h1>
-            <p>Create and print unlimited custom lined paper templates instantly - 15 different types including ruled paper, graph grids, music staff, calligraphy guides, and technical drawings. Perfect for students, teachers, artists, and professionals!</p>
-            <div class="subtitle">✨ 100% Free • No Registration • Unlimited Use</div>
-        </div>
-
-        <!-- Share Bar -->
-        <div class="share-bar">
-            <div class="share-text">💙 Share this FREE tool with others!</div>
-            <div class="share-buttons">
-                <a href="#" class="share-btn twitter" onclick="shareOn('twitter'); return false;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    Share on X
-                </a>
-                <a href="#" class="share-btn facebook" onclick="shareOn('facebook'); return false;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                    Facebook
-                </a>
-                <a href="#" class="share-btn linkedin" onclick="shareOn('linkedin'); return false;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="#" class="share-btn copy" onclick="copyLink(); return false;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                    </svg>
-                    Copy Link
-                </a>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme (T)">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+    
+    <!-- Keyboard Shortcuts Modal -->
+    <div class="modal-overlay" id="shortcutsModal" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="shortcutsTitle">⌨️ Keyboard Shortcuts</h3>
+                <button class="modal-close" id="closeShortcuts" aria-label="Close modal">&times;</button>
             </div>
-        </div>
-
-        <!-- Controls -->
-        <div class="controls">
-            <!-- Paper Type Selection -->
-            <div class="control-section">
-                <label class="control-label">
-                    <span class="icon">📄</span>
-                    Paper Type
-                </label>
-                <div class="paper-types-grid">
-                    <div class="paper-type-card active" data-type="wide-ruled" onclick="selectPaperType('wide-ruled')">
-                        <span class="paper-type-icon">📝</span>
-                        <div class="paper-type-name">Wide Ruled</div>
-                        <div class="paper-type-desc">Classic notebook paper</div>
-                    </div>
-                    <div class="paper-type-card" data-type="college-ruled" onclick="selectPaperType('college-ruled')">
-                        <span class="paper-type-icon">✍️</span>
-                        <div class="paper-type-name">College Ruled</div>
-                        <div class="paper-type-desc">Standard lined paper</div>
-                    </div>
-                    <div class="paper-type-card" data-type="narrow-ruled" onclick="selectPaperType('narrow-ruled')">
-                        <span class="paper-type-icon">📋</span>
-                        <div class="paper-type-name">Narrow Ruled</div>
-                        <div class="paper-type-desc">More lines per page</div>
-                    </div>
-                    <div class="paper-type-card" data-type="handwriting" onclick="selectPaperType('handwriting')">
-                        <span class="paper-type-icon">✏️</span>
-                        <div class="paper-type-name">Handwriting</div>
-                        <div class="paper-type-desc">Primary with dotted line</div>
-                    </div>
-                    <div class="paper-type-card" data-type="graph" onclick="selectPaperType('graph')">
-                        <span class="paper-type-icon">📊</span>
-                        <div class="paper-type-name">Graph Paper</div>
-                        <div class="paper-type-desc">Square grid pattern</div>
-                    </div>
-                    <div class="paper-type-card" data-type="dot-grid" onclick="selectPaperType('dot-grid')">
-                        <span class="paper-type-icon">⚫</span>
-                        <div class="paper-type-name">Dot Grid</div>
-                        <div class="paper-type-desc">Bullet journal style</div>
-                    </div>
-                    <div class="paper-type-card" data-type="isometric" onclick="selectPaperType('isometric')">
-                        <span class="paper-type-icon">🔷</span>
-                        <div class="paper-type-name">Isometric</div>
-                        <div class="paper-type-desc">3D technical drawing</div>
-                    </div>
-                    <div class="paper-type-card" data-type="hex" onclick="selectPaperType('hex')">
-                        <span class="paper-type-icon">⬢</span>
-                        <div class="paper-type-name">Hexagonal</div>
-                        <div class="paper-type-desc">Chemistry & gaming</div>
-                    </div>
-                    <div class="paper-type-card" data-type="music" onclick="selectPaperType('music')">
-                        <span class="paper-type-icon">🎵</span>
-                        <div class="paper-type-name">Music Staff</div>
-                        <div class="paper-type-desc">Musical notation</div>
-                    </div>
-                    <div class="paper-type-card" data-type="coordinate" onclick="selectPaperType('coordinate')">
-                        <span class="paper-type-icon">📐</span>
-                        <div class="paper-type-name">Coordinate</div>
-                        <div class="paper-type-desc">X-Y axis grid</div>
-                    </div>
-                    <div class="paper-type-card" data-type="cornell" onclick="selectPaperType('cornell')">
-                        <span class="paper-type-icon">📖</span>
-                        <div class="paper-type-name">Cornell Notes</div>
-                        <div class="paper-type-desc">Note-taking system</div>
-                    </div>
-                    <div class="paper-type-card" data-type="blank" onclick="selectPaperType('blank')">
-                        <span class="paper-type-icon">⬜</span>
-                        <div class="paper-type-name">Blank</div>
-                        <div class="paper-type-desc">Plain white paper</div>
-                    </div>
-                    <div class="paper-type-card" data-type="seyes" onclick="selectPaperType('seyes')">
-                        <span class="paper-type-icon">📚</span>
-                        <div class="paper-type-name">Seyes Ruled</div>
-                        <div class="paper-type-desc">French ruling system</div>
-                    </div>
-                    <div class="paper-type-card" data-type="calligraphy" onclick="selectPaperType('calligraphy')">
-                        <span class="paper-type-icon">🖋️</span>
-                        <div class="paper-type-name">Calligraphy</div>
-                        <div class="paper-type-desc">Slanted guide lines</div>
-                    </div>
-                    <div class="paper-type-card" data-type="planner" onclick="selectPaperType('planner')">
-                        <span class="paper-type-icon">📅</span>
-                        <div class="paper-type-name">Daily Planner</div>
-                        <div class="paper-type-desc">Schedule & to-do list</div>
-                    </div>
+            <div class="modal-body">
+                <div class="shortcut-grid">
+                    <div class="shortcut-item"><kbd>T</kbd><span>Toggle theme</span></div>
+                    <div class="shortcut-item"><kbd>P</kbd><span>Print paper</span></div>
+                    <div class="shortcut-item"><kbd>G</kbd><span>Generate paper</span></div>
+                    <div class="shortcut-item"><kbd>D</kbd><span>Download PNG</span></div>
+                    <div class="shortcut-item"><kbd>S</kbd><span>Download SVG</span></div>
+                    <div class="shortcut-item"><kbd>1-9</kbd><span>Quick select paper type</span></div>
+                    <div class="shortcut-item"><kbd>?</kbd><span>Show this help</span></div>
+                    <div class="shortcut-item"><kbd>Esc</kbd><span>Close modal</span></div>
                 </div>
-            </div>
-
-            <!-- Settings -->
-            <div class="control-section">
-                <label class="control-label">
-                    <span class="icon">⚙️</span>
-                    Customization Settings
-                </label>
-                <div class="settings-grid">
-                    <!-- Page Size -->
-                    <div class="setting-group">
-                        <label class="setting-label">Page Size</label>
-                        <select id="pageSize" class="setting-input" onchange="updatePreview()">
-                            <option value="letter">Letter (8.5" × 11")</option>
-                            <option value="a4">A4 (210mm × 297mm)</option>
-                            <option value="legal">Legal (8.5" × 14")</option>
-                            <option value="a5">A5 (148mm × 210mm)</option>
-                        </select>
-                    </div>
-
-                    <!-- Orientation -->
-                    <div class="setting-group">
-                        <label class="setting-label">Orientation</label>
-                        <div class="toggle-group">
-                            <button class="toggle-btn active" data-orientation="portrait" onclick="setOrientation('portrait')">📄 Portrait</button>
-                            <button class="toggle-btn" data-orientation="landscape" onclick="setOrientation('landscape')">📃 Landscape</button>
-                        </div>
-                    </div>
-
-                    <!-- Line Spacing (for ruled papers) -->
-                    <div class="setting-group" id="spacingControl">
-                        <label class="setting-label">Line Spacing: <span id="spacingValue">8</span>mm</label>
-                        <div class="slider-container">
-                            <input type="range" id="lineSpacing" class="slider" min="4" max="15" value="8" step="0.5" oninput="updateSpacing(this.value)">
-                        </div>
-                    </div>
-
-                    <!-- Grid Size (for graph/dot papers) -->
-                    <div class="setting-group" id="gridSizeControl" style="display: none;">
-                        <label class="setting-label">Grid Size: <span id="gridValue">5</span>mm</label>
-                        <div class="slider-container">
-                            <input type="range" id="gridSize" class="slider" min="2" max="20" value="5" step="0.5" oninput="updateGridSize(this.value)">
-                        </div>
-                    </div>
-
-                    <!-- Color -->
-                    <div class="setting-group">
-                        <label class="setting-label">Line Color</label>
-                        <select id="lineColor" class="setting-input" onchange="updatePreview()">
-                            <option value="#c7d2e0">Light Blue (Default)</option>
-                            <option value="#000000">Black</option>
-                            <option value="#808080">Gray</option>
-                            <option value="#ff0000">Red</option>
-                            <option value="#0000ff">Blue</option>
-                            <option value="#00ff00">Green</option>
-                        </select>
-                    </div>
-
-                    <!-- Margins -->
-                    <div class="setting-group">
-                        <label class="setting-label">Margins</label>
-                        <div class="toggle-group">
-                            <button class="toggle-btn active" data-margin="normal" onclick="setMargin('normal')">Normal</button>
-                            <button class="toggle-btn" data-margin="narrow" onclick="setMargin('narrow')">Narrow</button>
-                            <button class="toggle-btn" data-margin="wide" onclick="setMargin('wide')">Wide</button>
-                        </div>
-                    </div>
-
-                    <!-- Left Margin Line -->
-                    <div class="setting-group" id="leftMarginControl">
-                        <label class="setting-label">Left Margin Line</label>
-                        <div class="toggle-group">
-                            <button class="toggle-btn active" data-leftmargin="yes" onclick="setLeftMargin(true)">✓ Yes</button>
-                            <button class="toggle-btn" data-leftmargin="no" onclick="setLeftMargin(false)">✗ No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="control-section">
-                <div class="action-buttons">
-                    <button class="btn btn-primary" onclick="generatePaper()">
-                        🔄 Generate Paper
-                    </button>
-                    <button class="btn btn-success" onclick="printPaper()">
-                        🖨️ Print / Save PDF
-                    </button>
-                    <button class="btn btn-secondary" onclick="downloadPNG()">
-                        💾 Download PNG
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Preview -->
-        <div class="preview-section">
-            <div class="preview-header">
-                <h2>Preview</h2>
-                <p class="preview-info">Your custom paper will appear below. Click "Print / Save PDF" when ready.</p>
-            </div>
-            <div class="paper-preview" id="paperPreview">
-                <canvas id="paperCanvas"></canvas>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="app-footer">
-        <div class="footer-content">
-            <a href="https://github.com/BrosG" target="_blank" rel="noopener noreferrer" class="made-with-love">
-                Made with <span class="heart">❤️</span> by BrosG
-            </a>
-            <div class="footer-links">
-                <a href="https://github.com/BrosG/Line-Paper-Generator" target="_blank" rel="noopener noreferrer" class="footer-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    GitHub
-                </a>
-                <a href="https://x.com/GauthierBros" target="_blank" rel="noopener noreferrer" class="footer-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    Twitter/X
-                </a>
-                <a href="https://www.linkedin.com/in/gauthier-bros/" target="_blank" rel="noopener noreferrer" class="footer-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-            </div>
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Decorative Background -->
+        <div class="bg-decoration">
+            <div class="bg-grid"></div>
+            <div class="bg-glow bg-glow-1"></div>
+            <div class="bg-glow bg-glow-2"></div>
+            <div class="bg-noise"></div>
         </div>
-    </footer>
 
-    <script>
-        // Global state
-        let currentPaperType = 'wide-ruled';
-        let currentOrientation = 'portrait';
-        let currentMargin = 'normal';
-        let hasLeftMargin = true;
-        
-        // Paper dimensions in pixels (at 96 DPI)
-        const paperSizes = {
-            letter: { width: 816, height: 1056 },   // 8.5" x 11"
-            a4: { width: 794, height: 1123 },       // 210mm x 297mm
-            legal: { width: 816, height: 1344 },    // 8.5" x 14"
-            a5: { width: 559, height: 794 }         // 148mm x 210mm
-        };
+        <!-- Header -->
+        <header class="header" role="banner">
+            <div class="header-badge">
+                <span class="badge-icon">✨</span>
+                <span class="badge-text">100% Free • No Registration</span>
+            </div>
+            <h1 class="header-title">
+                <span class="title-icon">📝</span>
+                <span class="title-text">Line Paper <span class="title-accent">Generator</span></span>
+            </h1>
+            <p class="header-subtitle">
+                Create professional printable paper templates in seconds. 
+                Choose from <strong>18+ paper types</strong> for writing, math, music, and technical drawing.
+            </p>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-number">18+</span>
+                    <span class="stat-label">Paper Types</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Downloads</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">0$</span>
+                    <span class="stat-label">Forever</span>
+                </div>
+            </div>
+        </header>
 
-        // Margin settings in pixels
-        const marginSettings = {
-            normal: { top: 72, right: 72, bottom: 72, left: 72 },      // 0.75"
-            narrow: { top: 48, right: 48, bottom: 48, left: 48 },      // 0.5"
-            wide: { top: 96, right: 96, bottom: 96, left: 96 }         // 1"
-        };
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            generatePaper();
-        });
-
-        function selectPaperType(type) {
-            currentPaperType = type;
-            
-            // Update active state
-            document.querySelectorAll('.paper-type-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            document.querySelector(`[data-type="${type}"]`).classList.add('active');
-            
-            // Show/hide relevant controls
-            const spacingControl = document.getElementById('spacingControl');
-            const gridSizeControl = document.getElementById('gridSizeControl');
-            const leftMarginControl = document.getElementById('leftMarginControl');
-            
-            // Hide all optional controls first
-            spacingControl.style.display = 'none';
-            gridSizeControl.style.display = 'none';
-            
-            // Show relevant controls based on paper type
-            if (['wide-ruled', 'college-ruled', 'narrow-ruled', 'handwriting', 'cornell', 'seyes', 'calligraphy', 'planner'].includes(type)) {
-                spacingControl.style.display = 'block';
-                leftMarginControl.style.display = 'block';
-            } else if (['graph', 'dot-grid', 'isometric', 'hex', 'coordinate'].includes(type)) {
-                gridSizeControl.style.display = 'block';
-                leftMarginControl.style.display = 'none';
-            } else {
-                leftMarginControl.style.display = 'none';
-            }
-            
-            updatePreview();
-        }
-
-        function setOrientation(orientation) {
-            currentOrientation = orientation;
-            
-            document.querySelectorAll('[data-orientation]').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`[data-orientation="${orientation}"]`).classList.add('active');
-            
-            updatePreview();
-        }
-
-        function setMargin(margin) {
-            currentMargin = margin;
-            
-            document.querySelectorAll('[data-margin]').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`[data-margin="${margin}"]`).classList.add('active');
-            
-            updatePreview();
-        }
-
-        function setLeftMargin(hasMargin) {
-            hasLeftMargin = hasMargin;
-            
-            document.querySelectorAll('[data-leftmargin]').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`[data-leftmargin="${hasMargin ? 'yes' : 'no'}"]`).classList.add('active');
-            
-            updatePreview();
-        }
-
-        function updateSpacing(value) {
-            document.getElementById('spacingValue').textContent = value;
-            updatePreview();
-        }
-
-        function updateGridSize(value) {
-            document.getElementById('gridValue').textContent = value;
-            updatePreview();
-        }
-
-        function updatePreview() {
-            generatePaper();
-        }
-
-        function generatePaper() {
-            const canvas = document.getElementById('paperCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Get settings
-            const pageSize = document.getElementById('pageSize').value;
-            const lineColor = document.getElementById('lineColor').value;
-            const lineSpacing = parseFloat(document.getElementById('lineSpacing').value) * 3.78; // mm to pixels
-            const gridSize = parseFloat(document.getElementById('gridSize').value) * 3.78; // mm to pixels
-            
-            // Set canvas size
-            let size = paperSizes[pageSize];
-            if (currentOrientation === 'landscape') {
-                canvas.width = size.height;
-                canvas.height = size.width;
-            } else {
-                canvas.width = size.width;
-                canvas.height = size.height;
-            }
-            
-            // Clear canvas
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Get margins
-            const margins = marginSettings[currentMargin];
-            
-            // Draw based on paper type
-            switch(currentPaperType) {
-                case 'wide-ruled':
-                case 'college-ruled':
-                case 'narrow-ruled':
-                    drawRuledPaper(ctx, canvas.width, canvas.height, margins, lineSpacing, lineColor);
-                    break;
-                case 'handwriting':
-                    drawHandwritingPaper(ctx, canvas.width, canvas.height, margins, lineSpacing, lineColor);
-                    break;
-                case 'graph':
-                    drawGraphPaper(ctx, canvas.width, canvas.height, margins, gridSize, lineColor);
-                    break;
-                case 'dot-grid':
-                    drawDotGrid(ctx, canvas.width, canvas.height, margins, gridSize, lineColor);
-                    break;
-                case 'isometric':
-                    drawIsometric(ctx, canvas.width, canvas.height, margins, gridSize, lineColor);
-                    break;
-                case 'hex':
-                    drawHexGrid(ctx, canvas.width, canvas.height, margins, gridSize, lineColor);
-                    break;
-                case 'music':
-                    drawMusicStaff(ctx, canvas.width, canvas.height, margins, lineColor);
-                    break;
-                case 'coordinate':
-                    drawCoordinatePlane(ctx, canvas.width, canvas.height, margins, gridSize, lineColor);
-                    break;
-                case 'cornell':
-                    drawCornellNotes(ctx, canvas.width, canvas.height, margins, lineSpacing, lineColor);
-                    break;
-                case 'seyes':
-                    drawSeyesRuled(ctx, canvas.width, canvas.height, margins, lineSpacing, lineColor);
-                    break;
-                case 'calligraphy':
-                    drawCalligraphyGuide(ctx, canvas.width, canvas.height, margins, lineSpacing, lineColor);
-                    break;
-                case 'planner':
-                    drawDailyPlanner(ctx, canvas.width, canvas.height, margins, lineSpacing, lineColor);
-                    break;
-                case 'blank':
-                    // Already cleared to white
-                    break;
-            }
-        }
-
-        function drawRuledPaper(ctx, width, height, margins, spacing, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1;
-            
-            // Draw left margin line
-            if (hasLeftMargin) {
-                ctx.strokeStyle = '#ff0000';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(margins.left + 60, margins.top);
-                ctx.lineTo(margins.left + 60, height - margins.bottom);
-                ctx.stroke();
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 1;
-            }
-            
-            // Draw horizontal lines
-            for (let y = margins.top; y < height - margins.bottom; y += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-            }
-        }
-
-        function drawHandwritingPaper(ctx, width, height, margins, spacing, color) {
-            ctx.lineWidth = 1;
-            
-            // Draw left margin line
-            if (hasLeftMargin) {
-                ctx.strokeStyle = '#ff0000';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(margins.left + 60, margins.top);
-                ctx.lineTo(margins.left + 60, height - margins.bottom);
-                ctx.stroke();
-                ctx.lineWidth = 1;
-            }
-            
-            // Draw groups of lines (solid-dotted-solid pattern)
-            for (let y = margins.top; y < height - margins.bottom; y += spacing * 3) {
-                // Top solid line
-                ctx.strokeStyle = color;
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-                
-                // Middle dotted line
-                ctx.strokeStyle = color;
-                ctx.setLineDash([3, 3]);
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y + spacing);
-                ctx.lineTo(width - margins.right, y + spacing);
-                ctx.stroke();
-                ctx.setLineDash([]);
-                
-                // Bottom solid line
-                ctx.strokeStyle = color;
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y + spacing * 2);
-                ctx.lineTo(width - margins.right, y + spacing * 2);
-                ctx.stroke();
-            }
-        }
-
-        function drawGraphPaper(ctx, width, height, margins, gridSize, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 0.5;
-            
-            // Vertical lines
-            for (let x = margins.left; x < width - margins.right; x += gridSize) {
-                ctx.beginPath();
-                ctx.moveTo(x, margins.top);
-                ctx.lineTo(x, height - margins.bottom);
-                ctx.stroke();
-            }
-            
-            // Horizontal lines
-            for (let y = margins.top; y < height - margins.bottom; y += gridSize) {
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-            }
-            
-            // Darker lines every 5 squares
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1.5;
-            let counter = 0;
-            for (let x = margins.left; x < width - margins.right; x += gridSize) {
-                if (counter % 5 === 0) {
-                    ctx.beginPath();
-                    ctx.moveTo(x, margins.top);
-                    ctx.lineTo(x, height - margins.bottom);
-                    ctx.stroke();
-                }
-                counter++;
-            }
-            
-            counter = 0;
-            for (let y = margins.top; y < height - margins.bottom; y += gridSize) {
-                if (counter % 5 === 0) {
-                    ctx.beginPath();
-                    ctx.moveTo(margins.left, y);
-                    ctx.lineTo(width - margins.right, y);
-                    ctx.stroke();
-                }
-                counter++;
-            }
-        }
-
-        function drawDotGrid(ctx, width, height, margins, gridSize, color) {
-            ctx.fillStyle = color;
-            const dotRadius = 1.5;
-            
-            for (let x = margins.left; x < width - margins.right; x += gridSize) {
-                for (let y = margins.top; y < height - margins.bottom; y += gridSize) {
-                    ctx.beginPath();
-                    ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-        }
-
-        function drawIsometric(ctx, width, height, margins, gridSize, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 0.5;
-            
-            const angle = Math.PI / 3; // 60 degrees
-            const spacing = gridSize;
-            
-            // Draw three sets of parallel lines
-            // Lines slanting right (30 degrees)
-            for (let offset = -height; offset < width + height; offset += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(margins.left + offset, margins.top);
-                ctx.lineTo(margins.left + offset + height * Math.tan(Math.PI / 6), height - margins.bottom);
-                ctx.stroke();
-            }
-            
-            // Lines slanting left (150 degrees)
-            for (let offset = 0; offset < width + height; offset += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(width - margins.right - offset, margins.top);
-                ctx.lineTo(width - margins.right - offset - height * Math.tan(Math.PI / 6), height - margins.bottom);
-                ctx.stroke();
-            }
-            
-            // Vertical lines
-            for (let x = margins.left; x < width - margins.right; x += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(x, margins.top);
-                ctx.lineTo(x, height - margins.bottom);
-                ctx.stroke();
-            }
-        }
-
-        function drawHexGrid(ctx, width, height, margins, gridSize, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 0.5;
-            
-            const hexWidth = gridSize;
-            const hexHeight = hexWidth * Math.sqrt(3) / 2;
-            const horizontalSpacing = hexWidth * 3 / 4;
-            
-            for (let row = 0; row * hexHeight < height - margins.bottom - margins.top; row++) {
-                for (let col = 0; col * horizontalSpacing < width - margins.right - margins.left; col++) {
-                    const x = margins.left + col * horizontalSpacing;
-                    const y = margins.top + row * hexHeight + (col % 2) * hexHeight / 2;
+        <!-- Main Content -->
+        <main class="main-content" role="main">
+            <!-- Controls Panel -->
+            <section class="controls-panel" aria-label="Paper configuration">
+                <!-- Paper Type Selection -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon">📄</span>
+                            Paper Type
+                        </h2>
+                        <span class="section-hint">Press 1-9 for quick select</span>
+                    </div>
                     
-                    drawHexagon(ctx, x, y, hexWidth / 2);
-                }
-            }
-        }
+                    <div class="paper-types-container">
+                        <!-- Category: Writing -->
+                        <div class="paper-category">
+                            <h3 class="category-title">✍️ Writing</h3>
+                            <div class="paper-types-grid" role="radiogroup" aria-label="Writing paper types">
+                                <button class="paper-type-card active" data-type="wide-ruled" role="radio" aria-checked="true" data-shortcut="1">
+                                    <span class="card-icon">📝</span>
+                                    <span class="card-name">Wide Ruled</span>
+                                    <span class="card-desc">Classic notebook</span>
+                                    <span class="card-shortcut">1</span>
+                                </button>
+                                <button class="paper-type-card" data-type="college-ruled" role="radio" aria-checked="false" data-shortcut="2">
+                                    <span class="card-icon">✍️</span>
+                                    <span class="card-name">College Ruled</span>
+                                    <span class="card-desc">Standard lined</span>
+                                    <span class="card-shortcut">2</span>
+                                </button>
+                                <button class="paper-type-card" data-type="narrow-ruled" role="radio" aria-checked="false" data-shortcut="3">
+                                    <span class="card-icon">📋</span>
+                                    <span class="card-name">Narrow Ruled</span>
+                                    <span class="card-desc">More lines</span>
+                                    <span class="card-shortcut">3</span>
+                                </button>
+                                <button class="paper-type-card" data-type="handwriting" role="radio" aria-checked="false">
+                                    <span class="card-icon">✏️</span>
+                                    <span class="card-name">Handwriting</span>
+                                    <span class="card-desc">Primary dotted</span>
+                                </button>
+                                <button class="paper-type-card" data-type="seyes" role="radio" aria-checked="false">
+                                    <span class="card-icon">📚</span>
+                                    <span class="card-name">Seyes (French)</span>
+                                    <span class="card-desc">French ruling</span>
+                                </button>
+                                <button class="paper-type-card" data-type="calligraphy" role="radio" aria-checked="false">
+                                    <span class="card-icon">🖋️</span>
+                                    <span class="card-name">Calligraphy</span>
+                                    <span class="card-desc">Slant guides</span>
+                                </button>
+                            </div>
+                        </div>
 
-        function drawHexagon(ctx, x, y, radius) {
-            ctx.beginPath();
-            for (let i = 0; i < 6; i++) {
-                const angle = (Math.PI / 3) * i;
-                const hx = x + radius * Math.cos(angle);
-                const hy = y + radius * Math.sin(angle);
-                if (i === 0) {
-                    ctx.moveTo(hx, hy);
-                } else {
-                    ctx.lineTo(hx, hy);
-                }
-            }
-            ctx.closePath();
-            ctx.stroke();
-        }
+                        <!-- Category: Technical -->
+                        <div class="paper-category">
+                            <h3 class="category-title">📐 Technical & Math</h3>
+                            <div class="paper-types-grid" role="radiogroup" aria-label="Technical paper types">
+                                <button class="paper-type-card" data-type="graph" role="radio" aria-checked="false" data-shortcut="4">
+                                    <span class="card-icon">📊</span>
+                                    <span class="card-name">Graph Paper</span>
+                                    <span class="card-desc">Square grid</span>
+                                    <span class="card-shortcut">4</span>
+                                </button>
+                                <button class="paper-type-card" data-type="dot-grid" role="radio" aria-checked="false" data-shortcut="5">
+                                    <span class="card-icon">⚫</span>
+                                    <span class="card-name">Dot Grid</span>
+                                    <span class="card-desc">Bullet journal</span>
+                                    <span class="card-shortcut">5</span>
+                                </button>
+                                <button class="paper-type-card" data-type="isometric" role="radio" aria-checked="false" data-shortcut="6">
+                                    <span class="card-icon">🔷</span>
+                                    <span class="card-name">Isometric</span>
+                                    <span class="card-desc">3D drawing</span>
+                                    <span class="card-shortcut">6</span>
+                                </button>
+                                <button class="paper-type-card" data-type="hex" role="radio" aria-checked="false">
+                                    <span class="card-icon">⬢</span>
+                                    <span class="card-name">Hexagonal</span>
+                                    <span class="card-desc">Chemistry/RPG</span>
+                                </button>
+                                <button class="paper-type-card" data-type="coordinate" role="radio" aria-checked="false">
+                                    <span class="card-icon">📐</span>
+                                    <span class="card-name">Coordinate</span>
+                                    <span class="card-desc">X-Y axis</span>
+                                </button>
+                                <button class="paper-type-card" data-type="polar" role="radio" aria-checked="false">
+                                    <span class="card-icon">🎯</span>
+                                    <span class="card-name">Polar Grid</span>
+                                    <span class="card-desc">Circular graph</span>
+                                </button>
+                                <button class="paper-type-card" data-type="engineering" role="radio" aria-checked="false">
+                                    <span class="card-icon">⚙️</span>
+                                    <span class="card-name">Engineering</span>
+                                    <span class="card-desc">5x5 grid</span>
+                                </button>
+                            </div>
+                        </div>
 
-        function drawMusicStaff(ctx, width, height, margins, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1;
-            
-            const staffSpacing = 12; // Space between lines in a staff
-            const staffGroupSpacing = 80; // Space between staff groups
-            
-            let y = margins.top;
-            while (y < height - margins.bottom - 100) {
-                // Draw 5 lines for staff
-                for (let i = 0; i < 5; i++) {
-                    ctx.beginPath();
-                    ctx.moveTo(margins.left, y + i * staffSpacing);
-                    ctx.lineTo(width - margins.right, y + i * staffSpacing);
-                    ctx.stroke();
-                }
-                
-                // Draw bar lines at regular intervals
-                ctx.lineWidth = 2;
-                for (let x = margins.left + 100; x < width - margins.right; x += 150) {
-                    ctx.beginPath();
-                    ctx.moveTo(x, y);
-                    ctx.lineTo(x, y + 4 * staffSpacing);
-                    ctx.stroke();
-                }
-                ctx.lineWidth = 1;
-                
-                y += staffGroupSpacing;
-            }
-        }
+                        <!-- Category: Specialty -->
+                        <div class="paper-category">
+                            <h3 class="category-title">🎵 Specialty</h3>
+                            <div class="paper-types-grid" role="radiogroup" aria-label="Specialty paper types">
+                                <button class="paper-type-card" data-type="music" role="radio" aria-checked="false" data-shortcut="7">
+                                    <span class="card-icon">🎵</span>
+                                    <span class="card-name">Music Staff</span>
+                                    <span class="card-desc">5-line staves</span>
+                                    <span class="card-shortcut">7</span>
+                                </button>
+                                <button class="paper-type-card" data-type="tab" role="radio" aria-checked="false">
+                                    <span class="card-icon">🎸</span>
+                                    <span class="card-name">Guitar Tab</span>
+                                    <span class="card-desc">6-line tabs</span>
+                                </button>
+                                <button class="paper-type-card" data-type="cornell" role="radio" aria-checked="false" data-shortcut="8">
+                                    <span class="card-icon">📖</span>
+                                    <span class="card-name">Cornell Notes</span>
+                                    <span class="card-desc">Note system</span>
+                                    <span class="card-shortcut">8</span>
+                                </button>
+                                <button class="paper-type-card" data-type="planner" role="radio" aria-checked="false" data-shortcut="9">
+                                    <span class="card-icon">📅</span>
+                                    <span class="card-name">Daily Planner</span>
+                                    <span class="card-desc">Schedule</span>
+                                    <span class="card-shortcut">9</span>
+                                </button>
+                                <button class="paper-type-card" data-type="storyboard" role="radio" aria-checked="false">
+                                    <span class="card-icon">🎬</span>
+                                    <span class="card-name">Storyboard</span>
+                                    <span class="card-desc">Video/animation</span>
+                                </button>
+                                <button class="paper-type-card" data-type="blank" role="radio" aria-checked="false">
+                                    <span class="card-icon">⬜</span>
+                                    <span class="card-name">Blank</span>
+                                    <span class="card-desc">Plain white</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        function drawCoordinatePlane(ctx, width, height, margins, gridSize, color) {
-            // Draw light grid
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 0.3;
-            
-            const centerX = width / 2;
-            const centerY = height / 2;
-            
-            // Vertical grid lines
-            for (let x = margins.left; x < width - margins.right; x += gridSize) {
-                ctx.beginPath();
-                ctx.moveTo(x, margins.top);
-                ctx.lineTo(x, height - margins.bottom);
-                ctx.stroke();
-            }
-            
-            // Horizontal grid lines
-            for (let y = margins.top; y < height - margins.bottom; y += gridSize) {
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-            }
-            
-            // Draw axes
-            ctx.strokeStyle = '#000000';
-            ctx.lineWidth = 2;
-            
-            // X-axis
-            ctx.beginPath();
-            ctx.moveTo(margins.left, centerY);
-            ctx.lineTo(width - margins.right, centerY);
-            ctx.stroke();
-            
-            // Y-axis
-            ctx.beginPath();
-            ctx.moveTo(centerX, margins.top);
-            ctx.lineTo(centerX, height - margins.bottom);
-            ctx.stroke();
-            
-            // Draw arrows
-            const arrowSize = 10;
-            // X-axis arrow
-            ctx.beginPath();
-            ctx.moveTo(width - margins.right, centerY);
-            ctx.lineTo(width - margins.right - arrowSize, centerY - arrowSize / 2);
-            ctx.lineTo(width - margins.right - arrowSize, centerY + arrowSize / 2);
-            ctx.closePath();
-            ctx.fill();
-            
-            // Y-axis arrow
-            ctx.beginPath();
-            ctx.moveTo(centerX, margins.top);
-            ctx.lineTo(centerX - arrowSize / 2, margins.top + arrowSize);
-            ctx.lineTo(centerX + arrowSize / 2, margins.top + arrowSize);
-            ctx.closePath();
-            ctx.fill();
-            
-            // Add tick marks
-            ctx.lineWidth = 1;
-            const tickSize = 8;
-            
-            // X-axis ticks
-            for (let x = centerX; x < width - margins.right; x += gridSize * 5) {
-                if (Math.abs(x - centerX) > 2) {
-                    ctx.beginPath();
-                    ctx.moveTo(x, centerY - tickSize);
-                    ctx.lineTo(x, centerY + tickSize);
-                    ctx.stroke();
-                }
-            }
-            for (let x = centerX; x > margins.left; x -= gridSize * 5) {
-                if (Math.abs(x - centerX) > 2) {
-                    ctx.beginPath();
-                    ctx.moveTo(x, centerY - tickSize);
-                    ctx.lineTo(x, centerY + tickSize);
-                    ctx.stroke();
-                }
-            }
-            
-            // Y-axis ticks
-            for (let y = centerY; y < height - margins.bottom; y += gridSize * 5) {
-                if (Math.abs(y - centerY) > 2) {
-                    ctx.beginPath();
-                    ctx.moveTo(centerX - tickSize, y);
-                    ctx.lineTo(centerX + tickSize, y);
-                    ctx.stroke();
-                }
-            }
-            for (let y = centerY; y > margins.top; y -= gridSize * 5) {
-                if (Math.abs(y - centerY) > 2) {
-                    ctx.beginPath();
-                    ctx.moveTo(centerX - tickSize, y);
-                    ctx.lineTo(centerX + tickSize, y);
-                    ctx.stroke();
-                }
-            }
-        }
+                <!-- Settings Section -->
+                <div class="control-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <span class="section-icon">⚙️</span>
+                            Customize
+                        </h2>
+                    </div>
+                    
+                    <div class="settings-grid">
+                        <!-- Page Size -->
+                        <div class="setting-group">
+                            <label class="setting-label" for="pageSize">Page Size</label>
+                            <div class="select-wrapper">
+                                <select id="pageSize" class="setting-select">
+                                    <option value="letter">Letter (8.5" × 11")</option>
+                                    <option value="a4">A4 (210 × 297mm)</option>
+                                    <option value="legal">Legal (8.5" × 14")</option>
+                                    <option value="a5">A5 (148 × 210mm)</option>
+                                    <option value="a3">A3 (297 × 420mm)</option>
+                                </select>
+                                <svg class="select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </div>
+                        </div>
 
-        function drawCornellNotes(ctx, width, height, margins, spacing, color) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1;
-            
-            // Draw left cue column (about 1/3 of page)
-            const cueColumnWidth = (width - margins.left - margins.right) / 3;
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#ff0000';
-            ctx.beginPath();
-            ctx.moveTo(margins.left + cueColumnWidth, margins.top);
-            ctx.lineTo(margins.left + cueColumnWidth, height - margins.bottom - 100);
-            ctx.stroke();
-            
-            // Draw summary section at bottom
-            ctx.beginPath();
-            ctx.moveTo(margins.left, height - margins.bottom - 100);
-            ctx.lineTo(width - margins.right, height - margins.bottom - 100);
-            ctx.stroke();
-            
-            // Draw horizontal lines in main note-taking area
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 1;
-            for (let y = margins.top; y < height - margins.bottom - 100; y += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(margins.left + cueColumnWidth, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-            }
-            
-            // Draw lines in summary section
-            for (let y = height - margins.bottom - 95; y < height - margins.bottom; y += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-            }
-            
-            // Add labels
-            ctx.fillStyle = '#888888';
-            ctx.font = '10px sans-serif';
-            ctx.fillText('Cues', margins.left + 10, margins.top + 20);
-            ctx.fillText('Notes', margins.left + cueColumnWidth + 10, margins.top + 20);
-            ctx.fillText('Summary', margins.left + 10, height - margins.bottom - 85);
-        }
+                        <!-- Orientation -->
+                        <div class="setting-group">
+                            <label class="setting-label">Orientation</label>
+                            <div class="toggle-group" role="radiogroup" aria-label="Page orientation">
+                                <button class="toggle-btn active" data-orientation="portrait" role="radio" aria-checked="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="5" y="2" width="14" height="20" rx="2"/>
+                                    </svg>
+                                    Portrait
+                                </button>
+                                <button class="toggle-btn" data-orientation="landscape" role="radio" aria-checked="false">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="5" width="20" height="14" rx="2"/>
+                                    </svg>
+                                    Landscape
+                                </button>
+                            </div>
+                        </div>
 
-        function drawSeyesRuled(ctx, width, height, margins, spacing, color) {
-            // Seyes ruling (French ruling) - 2mm between lines, bold line every 8mm
-            const smallSpacing = spacing / 4; // 2mm lines
-            const largeSpacing = spacing; // 8mm between bold lines
-            
-            ctx.lineWidth = 0.5;
-            ctx.strokeStyle = color;
-            
-            // Draw left margin line (purple in traditional Seyes)
-            if (hasLeftMargin) {
-                ctx.strokeStyle = '#8b5cf6';
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(margins.left + 60, margins.top);
-                ctx.lineTo(margins.left + 60, height - margins.bottom);
-                ctx.stroke();
-            }
-            
-            // Draw horizontal lines
-            let lineCount = 0;
-            for (let y = margins.top; y < height - margins.bottom; y += smallSpacing) {
-                if (lineCount % 4 === 0) {
-                    // Bold line every 8mm
-                    ctx.strokeStyle = color;
-                    ctx.lineWidth = 1.5;
-                } else {
-                    // Thin lines for 2mm spacing
-                    ctx.strokeStyle = color;
-                    ctx.lineWidth = 0.5;
-                }
-                
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-                
-                lineCount++;
-            }
-            
-            // Draw vertical guide lines (every 8mm for Seyes)
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 0.3;
-            for (let x = margins.left + 60; x < width - margins.right; x += largeSpacing) {
-                ctx.beginPath();
-                ctx.moveTo(x, margins.top);
-                ctx.lineTo(x, height - margins.bottom);
-                ctx.stroke();
-            }
-        }
+                        <!-- Line/Grid Spacing -->
+                        <div class="setting-group" id="spacingControl">
+                            <label class="setting-label" for="lineSpacing">
+                                Line Spacing: <span class="setting-value" id="spacingValue">8</span>mm
+                            </label>
+                            <div class="slider-wrapper">
+                                <input type="range" id="lineSpacing" class="slider" min="3" max="20" value="8" step="0.5">
+                                <div class="slider-track"></div>
+                            </div>
+                        </div>
 
-        function drawCalligraphyGuide(ctx, width, height, margins, spacing, color) {
-            ctx.strokeStyle = color;
-            const angle = 55; // 55-degree slant for calligraphy
-            const baselineSpacing = spacing * 3; // Space between baseline groups
-            
-            // Draw horizontal guidelines (baseline, x-height, ascender, descender)
-            for (let y = margins.top; y < height - margins.bottom; y += baselineSpacing) {
-                // Descender line (dotted)
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 0.5;
-                ctx.setLineDash([2, 4]);
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y - spacing);
-                ctx.lineTo(width - margins.right, y - spacing);
-                ctx.stroke();
-                ctx.setLineDash([]);
-                
-                // Baseline (solid, bold)
-                ctx.lineWidth = 1.5;
-                ctx.strokeStyle = '#000000';
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y);
-                ctx.lineTo(width - margins.right, y);
-                ctx.stroke();
-                
-                // X-height line (solid)
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y + spacing);
-                ctx.lineTo(width - margins.right, y + spacing);
-                ctx.stroke();
-                
-                // Ascender line (dotted)
-                ctx.lineWidth = 0.5;
-                ctx.setLineDash([2, 4]);
-                ctx.beginPath();
-                ctx.moveTo(margins.left, y + spacing * 2);
-                ctx.lineTo(width - margins.right, y + spacing * 2);
-                ctx.stroke();
-                ctx.setLineDash([]);
-            }
-            
-            // Draw slanted guide lines
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 0.3;
-            const slantSpacing = spacing * 1.5;
-            const angleRad = (angle * Math.PI) / 180;
-            const slantOffset = (height - margins.top - margins.bottom) / Math.tan(angleRad);
-            
-            for (let x = margins.left - slantOffset; x < width - margins.right + slantOffset; x += slantSpacing) {
-                ctx.beginPath();
-                ctx.moveTo(x, margins.top);
-                ctx.lineTo(x + slantOffset, height - margins.bottom);
-                ctx.stroke();
-            }
-        }
+                        <!-- Grid Size (hidden by default) -->
+                        <div class="setting-group hidden" id="gridSizeControl">
+                            <label class="setting-label" for="gridSize">
+                                Grid Size: <span class="setting-value" id="gridValue">5</span>mm
+                            </label>
+                            <div class="slider-wrapper">
+                                <input type="range" id="gridSize" class="slider" min="2" max="25" value="5" step="0.5">
+                                <div class="slider-track"></div>
+                            </div>
+                        </div>
 
-        function drawDailyPlanner(ctx, width, height, margins, spacing, color) {
-            ctx.strokeStyle = color;
-            ctx.fillStyle = '#000000';
-            ctx.font = 'bold 16px sans-serif';
-            
-            // Header section
-            const headerHeight = 80;
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#000000';
-            ctx.strokeRect(margins.left, margins.top, width - margins.left - margins.right, headerHeight);
-            
-            // Date and day fields
-            ctx.font = '14px sans-serif';
-            ctx.fillText('Date:', margins.left + 20, margins.top + 25);
-            ctx.fillText('________________', margins.left + 70, margins.top + 25);
-            ctx.fillText('Day:', margins.left + 250, margins.top + 25);
-            ctx.fillText('________________', margins.left + 300, margins.top + 25);
-            
-            // Goals/Priorities section
-            ctx.fillText('Today\'s Goals:', margins.left + 20, margins.top + 55);
-            
-            const contentTop = margins.top + headerHeight + 20;
-            const sectionHeight = (height - margins.bottom - contentTop - 20) / 2;
-            
-            // Schedule section (left side)
-            ctx.lineWidth = 1.5;
-            ctx.strokeStyle = '#000000';
-            ctx.strokeRect(margins.left, contentTop, (width - margins.left - margins.right) * 0.55, sectionHeight);
-            
-            ctx.font = 'bold 14px sans-serif';
-            ctx.fillText('SCHEDULE', margins.left + 20, contentTop + 25);
-            
-            // Time slots
-            ctx.font = '12px sans-serif';
-            ctx.lineWidth = 0.5;
-            ctx.strokeStyle = color;
-            const timeSlotHeight = spacing * 1.5;
-            const scheduleLeft = margins.left + 10;
-            const scheduleRight = margins.left + (width - margins.left - margins.right) * 0.55 - 10;
-            
-            const times = ['6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'];
-            let timeY = contentTop + 45;
-            
-            for (let i = 0; i < Math.min(times.length, Math.floor((sectionHeight - 50) / timeSlotHeight)); i++) {
-                ctx.fillStyle = '#666666';
-                ctx.fillText(times[i], scheduleLeft, timeY + 12);
-                
-                ctx.beginPath();
-                ctx.moveTo(scheduleLeft + 50, timeY);
-                ctx.lineTo(scheduleRight, timeY);
-                ctx.stroke();
-                
-                timeY += timeSlotHeight;
-            }
-            
-            // To-Do List section (right side)
-            const todoLeft = margins.left + (width - margins.left - margins.right) * 0.57;
-            const todoWidth = (width - margins.left - margins.right) * 0.43;
-            
-            ctx.lineWidth = 1.5;
-            ctx.strokeStyle = '#000000';
-            ctx.fillStyle = '#000000';
-            ctx.strokeRect(todoLeft, contentTop, todoWidth, sectionHeight);
-            
-            ctx.font = 'bold 14px sans-serif';
-            ctx.fillText('TO-DO LIST', todoLeft + 20, contentTop + 25);
-            
-            // Checkbox items
-            ctx.lineWidth = 0.5;
-            ctx.strokeStyle = color;
-            let todoY = contentTop + 50;
-            const checkboxSize = 12;
-            
-            for (let i = 0; i < Math.floor((sectionHeight - 60) / (spacing * 1.2)); i++) {
-                // Checkbox
-                ctx.strokeRect(todoLeft + 15, todoY - 10, checkboxSize, checkboxSize);
-                
-                // Line for task
-                ctx.beginPath();
-                ctx.moveTo(todoLeft + 35, todoY);
-                ctx.lineTo(todoLeft + todoWidth - 15, todoY);
-                ctx.stroke();
-                
-                todoY += spacing * 1.2;
-            }
-            
-            // Notes section (bottom)
-            const notesTop = contentTop + sectionHeight + 20;
-            const notesHeight = height - margins.bottom - notesTop;
-            
-            ctx.lineWidth = 1.5;
-            ctx.strokeStyle = '#000000';
-            ctx.fillStyle = '#000000';
-            ctx.strokeRect(margins.left, notesTop, width - margins.left - margins.right, notesHeight);
-            
-            ctx.font = 'bold 14px sans-serif';
-            ctx.fillText('NOTES', margins.left + 20, notesTop + 25);
-            
-            // Lined paper in notes section
-            ctx.lineWidth = 0.5;
-            ctx.strokeStyle = color;
-            for (let y = notesTop + 40; y < height - margins.bottom - 10; y += spacing * 0.8) {
-                ctx.beginPath();
-                ctx.moveTo(margins.left + 15, y);
-                ctx.lineTo(width - margins.right - 15, y);
-                ctx.stroke();
-            }
-        }
+                        <!-- Line Color -->
+                        <div class="setting-group">
+                            <label class="setting-label" for="lineColor">Line Color</label>
+                            <div class="color-picker-wrapper">
+                                <input type="color" id="lineColorPicker" class="color-input" value="#b8c5d6">
+                                <select id="lineColor" class="setting-select color-select">
+                                    <option value="#b8c5d6">Light Blue (Default)</option>
+                                    <option value="#e5e7eb">Light Gray</option>
+                                    <option value="#94a3b8">Medium Gray</option>
+                                    <option value="#64748b">Dark Gray</option>
+                                    <option value="#000000">Black</option>
+                                    <option value="#3b82f6">Blue</option>
+                                    <option value="#10b981">Green</option>
+                                    <option value="#f59e0b">Orange</option>
+                                    <option value="#ef4444">Red</option>
+                                    <option value="#8b5cf6">Purple</option>
+                                    <option value="custom">Custom...</option>
+                                </select>
+                            </div>
+                        </div>
 
-        function printPaper() {
-            window.print();
-        }
+                        <!-- Margins -->
+                        <div class="setting-group">
+                            <label class="setting-label">Margins</label>
+                            <div class="toggle-group triple" role="radiogroup" aria-label="Page margins">
+                                <button class="toggle-btn" data-margin="narrow" role="radio" aria-checked="false">Narrow</button>
+                                <button class="toggle-btn active" data-margin="normal" role="radio" aria-checked="true">Normal</button>
+                                <button class="toggle-btn" data-margin="wide" role="radio" aria-checked="false">Wide</button>
+                            </div>
+                        </div>
 
-        function downloadPNG() {
-            const canvas = document.getElementById('paperCanvas');
-            const link = document.createElement('a');
-            link.download = `${currentPaperType}-paper.png`;
-            link.href = canvas.toDataURL();
-            link.click();
-        }
+                        <!-- Left Margin Line -->
+                        <div class="setting-group" id="leftMarginControl">
+                            <label class="setting-label">Left Margin Line</label>
+                            <div class="toggle-group" role="radiogroup" aria-label="Left margin line">
+                                <button class="toggle-btn active" data-leftmargin="yes" role="radio" aria-checked="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    Show
+                                </button>
+                                <button class="toggle-btn" data-leftmargin="no" role="radio" aria-checked="false">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"/>
+                                        <line x1="6" y1="6" x2="18" y2="18"/>
+                                    </svg>
+                                    Hide
+                                </button>
+                            </div>
+                        </div>
 
-        // Social sharing functions
-        function shareOn(platform) {
-            const url = encodeURIComponent('https://brosg.github.io/Line-Paper-Generator/');
-            const text = encodeURIComponent('📝 Amazing FREE Line Paper Generator! Create custom ruled, graph, music staff, and technical paper instantly. Perfect for students, teachers, and professionals!');
-            
-            let shareUrl;
-            switch(platform) {
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}&hashtags=Education,FreeTool,PrintablePaper`;
-                    break;
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                    break;
-                case 'linkedin':
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-                    break;
-            }
-            
-            if (shareUrl) {
-                window.open(shareUrl, '_blank', 'width=600,height=400');
-            }
-        }
+                        <!-- Line Weight -->
+                        <div class="setting-group">
+                            <label class="setting-label" for="lineWeight">
+                                Line Weight: <span class="setting-value" id="weightValue">1.0</span>px
+                            </label>
+                            <div class="slider-wrapper">
+                                <input type="range" id="lineWeight" class="slider" min="0.25" max="3" value="1" step="0.25">
+                                <div class="slider-track"></div>
+                            </div>
+                        </div>
 
-        function copyLink() {
-            const url = 'https://brosg.github.io/Line-Paper-Generator/';
-            navigator.clipboard.writeText(url).then(() => {
-                const btn = document.querySelector('.share-btn.copy');
-                const originalHTML = btn.innerHTML;
-                btn.innerHTML = `
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Copied!
-                `;
-                setTimeout(() => {
-                    btn.innerHTML = originalHTML;
-                }, 2000);
-            });
-        }
-    </script>
+                        <!-- Quality (DPI) -->
+                        <div class="setting-group">
+                            <label class="setting-label" for="quality">Export Quality</label>
+                            <div class="select-wrapper">
+                                <select id="quality" class="setting-select">
+                                    <option value="1">Screen (96 DPI)</option>
+                                    <option value="1.5">Medium (150 DPI)</option>
+                                    <option value="2" selected>High (200 DPI)</option>
+                                    <option value="3">Print (300 DPI)</option>
+                                </select>
+                                <svg class="select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="control-section actions-section">
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="generateBtn" aria-label="Generate paper (G)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                            </svg>
+                            Generate
+                        </button>
+                        <button class="btn btn-success" id="printBtn" aria-label="Print or save as PDF (P)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 6 2 18 2 18 9"/>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                                <rect x="6" y="14" width="12" height="8"/>
+                            </svg>
+                            Print / PDF
+                        </button>
+                        <button class="btn btn-secondary" id="downloadPngBtn" aria-label="Download as PNG (D)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            PNG
+                        </button>
+                        <button class="btn btn-secondary" id="downloadSvgBtn" aria-label="Download as SVG (S)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            SVG
+                        </button>
+                    </div>
+                    <p class="actions-hint">
+                        <kbd>?</kbd> for keyboard shortcuts
+                    </p>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section" aria-label="Paper preview">
+                <div class="preview-header">
+                    <h2 class="preview-title">Preview</h2>
+                    <div class="preview-info">
+                        <span id="previewDimensions">8.5" × 11"</span>
+                        <span class="preview-divider">•</span>
+                        <span id="previewType">Wide Ruled</span>
+                    </div>
+                </div>
+                
+                <div class="preview-container">
+                    <div class="preview-wrapper" id="previewWrapper">
+                        <div class="preview-loading" id="previewLoading">
+                            <div class="loading-spinner"></div>
+                            <span>Generating...</span>
+                        </div>
+                        <canvas id="paperCanvas" aria-label="Paper preview canvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="preview-zoom">
+                    <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            <line x1="8" y1="11" x2="14" y2="11"/>
+                        </svg>
+                    </button>
+                    <span class="zoom-level" id="zoomLevel">100%</span>
+                    <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            <line x1="11" y1="8" x2="11" y2="14"/>
+                            <line x1="8" y1="11" x2="14" y2="11"/>
+                        </svg>
+                    </button>
+                    <button class="zoom-btn" id="zoomFit" aria-label="Fit to view">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="footer-content">
+                <a href="https://github.com/BrosG" target="_blank" rel="noopener noreferrer" class="footer-brand">
+                    Made with <span class="heart" aria-hidden="true">❤️</span> by <strong>BrosG</strong>
+                </a>
+                
+                <nav class="footer-links" aria-label="Social links">
+                    <a href="https://github.com/BrosG/Line-Paper-Generator" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="View on GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://x.com/GauthierBros" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Follow on X (Twitter)">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        Twitter
+                    </a>
+                    <a href="https://www.linkedin.com/in/gauthier-bros/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Connect on LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </nav>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
