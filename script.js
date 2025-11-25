@@ -108,7 +108,6 @@ const state = {
     quality: CONFIG.defaults.quality,
     zoom: 100,
     theme: 'light',
-    actionCount: 0,  // Track downloads/prints for follow modal
     followModalShownThisSession: false
 };
 
@@ -1236,50 +1235,111 @@ function drawStoryboard(ctx, size, margins, color, weight) {
 // Export Functions
 // ==========================================================================
 
+// Store pending action
+let pendingAction = null;
+
 function printPaper() {
-    showToast('Printing', 'Opening print dialog...', 'success');
-    window.print();
-    trackAction();
+    if (shouldShowFollowModal()) {
+        // Show modal BEFORE printing
+        pendingAction = {
+            type: 'print',
+            execute: () => {
+                window.print();
+                showToast('Printing', 'Opening print dialog...', 'success');
+            }
+        };
+        showFollowModal();
+    } else {
+        // Execute directly
+        window.print();
+        showToast('Printing', 'Opening print dialog...', 'success');
+    }
 }
 
 function downloadPng() {
     if (!elements.canvas) return;
     
-    const link = document.createElement('a');
-    link.download = `${state.paperType}-paper.png`;
-    link.href = elements.canvas.toDataURL('image/png');
-    link.click();
-    
-    showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as PNG`, 'success');
-    trackAction();
+    if (shouldShowFollowModal()) {
+        // Show modal BEFORE downloading
+        pendingAction = {
+            type: 'download',
+            format: 'PNG',
+            execute: () => {
+                const link = document.createElement('a');
+                link.download = `${state.paperType}-paper.png`;
+                link.href = elements.canvas.toDataURL('image/png');
+                link.click();
+                showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as PNG`, 'success');
+            }
+        };
+        showFollowModal();
+    } else {
+        // Execute directly
+        const link = document.createElement('a');
+        link.download = `${state.paperType}-paper.png`;
+        link.href = elements.canvas.toDataURL('image/png');
+        link.click();
+        showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as PNG`, 'success');
+    }
 }
 
 function downloadSvg() {
     if (!elements.canvas) return;
     
-    // Create SVG with embedded canvas image
-    const quality = parseFloat(elements.quality?.value || state.quality);
-    let size = { ...CONFIG.paperSizes[state.pageSize] };
-    if (state.orientation === 'landscape') {
-        [size.width, size.height] = [size.height, size.width];
-    }
-    
-    const dataUrl = elements.canvas.toDataURL('image/png');
-    const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+    if (shouldShowFollowModal()) {
+        // Show modal BEFORE downloading
+        pendingAction = {
+            type: 'download',
+            format: 'SVG',
+            execute: () => {
+                const quality = parseFloat(elements.quality?.value || state.quality);
+                let size = { ...CONFIG.paperSizes[state.pageSize] };
+                if (state.orientation === 'landscape') {
+                    [size.width, size.height] = [size.height, size.width];
+                }
+                
+                const dataUrl = elements.canvas.toDataURL('image/png');
+                const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
      width="${size.width}" height="${size.height}" viewBox="0 0 ${size.width} ${size.height}">
     <image width="${size.width}" height="${size.height}" xlink:href="${dataUrl}"/>
 </svg>`;
-    
-    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
-    const link = document.createElement('a');
-    link.download = `${state.paperType}-paper.svg`;
-    link.href = URL.createObjectURL(blob);
-    link.click();
-    URL.revokeObjectURL(link.href);
-    
-    showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as SVG`, 'success');
-    trackAction();
+                
+                const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+                const link = document.createElement('a');
+                link.download = `${state.paperType}-paper.svg`;
+                link.href = URL.createObjectURL(blob);
+                link.click();
+                URL.revokeObjectURL(link.href);
+                
+                showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as SVG`, 'success');
+            }
+        };
+        showFollowModal();
+    } else {
+        // Execute directly
+        const quality = parseFloat(elements.quality?.value || state.quality);
+        let size = { ...CONFIG.paperSizes[state.pageSize] };
+        if (state.orientation === 'landscape') {
+            [size.width, size.height] = [size.height, size.width];
+        }
+        
+        const dataUrl = elements.canvas.toDataURL('image/png');
+        const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="${size.width}" height="${size.height}" viewBox="0 0 ${size.width} ${size.height}">
+    <image width="${size.width}" height="${size.height}" xlink:href="${dataUrl}"/>
+</svg>`;
+        
+        const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+        const link = document.createElement('a');
+        link.download = `${state.paperType}-paper.svg`;
+        link.href = URL.createObjectURL(blob);
+        link.click();
+        URL.revokeObjectURL(link.href);
+        
+        showToast('Downloaded', `${getPaperTypeName(state.paperType)} paper saved as SVG`, 'success');
+    }
 }
 
 // ==========================================================================
@@ -1301,7 +1361,7 @@ function closeModal() {
 
 /**
  * Check if we should show the follow modal
- * Shows after 1st action, unless user opted out or already shown this session
+ * Shows on first action, unless user opted out or already shown this session
  */
 function shouldShowFollowModal() {
     // Check if user opted out permanently
@@ -1314,83 +1374,61 @@ function shouldShowFollowModal() {
         return false;
     }
     
-    // Show after 1st download/print action
-    return state.actionCount >= 1;
+    // Show on first action
+    return true;
 }
 
 /**
- * Show the follow modal with a countdown timer
+ * Show the follow modal and update text based on action
  */
 function showFollowModal() {
-    if (!shouldShowFollowModal()) return;
+    if (!pendingAction) return;
     
     state.followModalShownThisSession = true;
     
-    // Delay to let the download/print action complete first
-    setTimeout(() => {
-        elements.followModal?.classList.add('visible');
-        
-        // Start countdown timer (4 seconds)
-        let countdown = 4;
-        const closeBtn = document.getElementById('closeFollow');
-        const skipBtn = document.getElementById('skipFollow');
-        const skipTimer = document.getElementById('skipTimer');
-        
-        // Disable buttons initially
-        if (closeBtn) closeBtn.disabled = true;
-        if (skipBtn) skipBtn.disabled = true;
-        
-        // Update timer display
-        const updateTimer = () => {
-            if (skipTimer) {
-                skipTimer.textContent = countdown > 0 ? `Wait ${countdown}s...` : 'Skip';
-            }
-        };
-        
-        updateTimer();
-        
-        const timerInterval = setInterval(() => {
-            countdown--;
-            updateTimer();
-            
-            if (countdown <= 0) {
-                clearInterval(timerInterval);
-                // Enable buttons
-                if (closeBtn) closeBtn.disabled = false;
-                if (skipBtn) {
-                    skipBtn.disabled = false;
-                    skipBtn.classList.add('enabled');
-                }
-            }
-        }, 1000);
-        
-        // Store interval ID in case modal is closed early
-        elements.followModal.dataset.timerInterval = timerInterval;
-    }, 500);
-}
-
-/**
- * Close the follow modal and save preference if checkbox is checked
- */
-function closeFollowModal() {
-    // Clear timer if exists
-    const timerInterval = elements.followModal?.dataset.timerInterval;
-    if (timerInterval) {
-        clearInterval(parseInt(timerInterval));
+    // Update modal text based on action type
+    const actionTypeEl = document.getElementById('followActionType');
+    const continueTextEl = document.getElementById('continueActionText');
+    
+    if (pendingAction.type === 'print') {
+        if (actionTypeEl) actionTypeEl.textContent = 'print';
+        if (continueTextEl) continueTextEl.textContent = 'Continue to Print';
+    } else {
+        if (actionTypeEl) actionTypeEl.textContent = 'download';
+        if (continueTextEl) continueTextEl.textContent = `Continue to Download ${pendingAction.format || ''}`;
     }
     
-    if (elements.dontShowAgain?.checked) {
-        localStorage.setItem('hideFollowModal', 'true');
-    }
-    elements.followModal?.classList.remove('visible');
+    // Show modal
+    elements.followModal?.classList.add('visible');
 }
 
 /**
- * Track an action (download/print) and maybe show follow modal
+ * Execute the pending action and close modal
  */
-function trackAction() {
-    state.actionCount++;
-    showFollowModal();
+function executePendingAction() {
+    if (pendingAction && pendingAction.execute) {
+        // Save preference if checked
+        if (elements.dontShowAgain?.checked) {
+            localStorage.setItem('hideFollowModal', 'true');
+        }
+        
+        // Close modal
+        elements.followModal?.classList.remove('visible');
+        
+        // Execute the action after a brief delay
+        setTimeout(() => {
+            pendingAction.execute();
+            pendingAction = null;
+        }, 100);
+    }
+}
+
+/**
+ * Close the follow modal without executing (shouldn't happen now)
+ */
+function closeFollowModal() {
+    // If they somehow close without continuing, still execute the action
+    executePendingAction();
 }
 
 // ==========================================================================
@@ -1503,17 +1541,19 @@ function setupEventListeners() {
     });
     
     // Follow Modal
-    document.getElementById('closeFollow')?.addEventListener('click', closeFollowModal);
-    document.getElementById('skipFollow')?.addEventListener('click', closeFollowModal);
+    document.getElementById('continueAction')?.addEventListener('click', executePendingAction);
     elements.followModal?.addEventListener('click', (e) => {
-        if (e.target === elements.followModal) closeFollowModal();
+        // Don't close on backdrop click - force interaction
+        // if (e.target === elements.followModal) executePendingAction();
     });
     
-    // Track clicks on follow buttons (for analytics if needed)
+    // Track clicks on follow buttons - execute action after clicking social link
     document.querySelectorAll('.follow-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             // User clicked a social link - they engaged!
             localStorage.setItem('hideFollowModal', 'true');
+            // Execute their pending action after a brief delay
+            setTimeout(executePendingAction, 300);
         });
     });
     

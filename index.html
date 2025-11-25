@@ -529,15 +529,14 @@
     <!-- Follow Modal (appears after actions) -->
     <div class="modal-overlay follow-overlay" id="followModal" role="dialog" aria-modal="true" aria-labelledby="followTitle">
         <div class="modal follow-modal">
-            <button class="modal-close" id="closeFollow" aria-label="Close modal" disabled>&times;</button>
             <div class="follow-content">
                 <div class="follow-icon-wrapper">
-                    <div class="follow-icon">🎉</div>
+                    <div class="follow-icon">🚀</div>
                     <div class="follow-sparkles">✨</div>
                 </div>
-                <h3 id="followTitle">Your paper is ready!</h3>
+                <h3 id="followTitle">Before you <span id="followActionType">download</span>...</h3>
                 <p class="follow-message">
-                    <strong>Love free tools?</strong> Follow me for more useful resources, updates, and open-source projects like this one!
+                    <strong>Love free tools?</strong> Follow me for more useful resources, updates, and open-source projects like this one! Takes 2 seconds. 💙
                 </p>
                 
                 <div class="follow-buttons">
@@ -570,14 +569,22 @@
                     </a>
                 </div>
                 
+                <div class="follow-actions">
+                    <button class="btn-continue" id="continueAction">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span id="continueActionText">Continue to Download</span>
+                    </button>
+                </div>
+                
                 <div class="follow-footer">
                     <label class="dont-show-label">
                         <input type="checkbox" id="dontShowAgain">
                         <span>Don't show this again</span>
                     </label>
-                    <button class="follow-skip" id="skipFollow">
-                        <span id="skipTimer"></span>
-                    </button>
                 </div>
             </div>
         </div>
